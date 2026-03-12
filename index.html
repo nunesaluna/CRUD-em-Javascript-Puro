@@ -1,0 +1,79 @@
+<script>
+//meu sistema será a respeito de notas de alunos
+
+let notas = [4, 0, 10, 7, 9.5]; //arranjo com o nome "notas" já com notas adicionadas
+
+function adicionarNota(notas, nota) { //inserir um novo item no arranjo-*push*
+    notas.push(nota); 
+}
+function mostrarNotas (notas) { //mostrar todos os itens
+    let todasAsNotas = notas.join(', '); //separador
+    alert("Notas atuais: " + todasAsNotas);
+}
+function alterarNota(notas, indice, novaNota) { //alterar valor de um item, acessa pelo índice e atribui o novo valor
+    notas[indice] = novaNota;
+}
+function removerUltimo(notas) { //remover item
+        if (notas.length > 0) { //validando entrada do usuário caso não exista a nota no arranjo p/ remover
+        notas.pop(); //pop remove o último elemento de um array
+        alert("Última nota removida com sucesso!");
+    } else {
+        alert("Não há notas para remover.");
+    }
+}
+function removerPrimeiro(notas){
+    if (notas.length > 0) {
+        notas.shift(); //shift remove o primeiro elemento de um array
+        alert("Primeira nota removida com sucesso!");
+    } else {
+        alert("Não há notas para remover.");
+    }
+}
+function menu(){
+let escolha;
+    do {    // estrutura de repetição do while para executar o bloco "menu" pelo menos uma vez
+        escolha = prompt(
+            "Escolha uma opção:\n" + //\n" + = formatando as opções para legibilidade no prompt
+            "1 para adicionar nota\n" +
+            "2 para mostrar notas\n" +
+            "3 para atualizar nota\n" +
+            "4 para remover última nota\n" +
+            "5 para remover primeira nota\n" +
+            "6 para sair"
+        );
+
+        switch (escolha) { /*usei a estrutura de controle de fluxo switch/case p/ executar o bloco de código de acordo com a escolha do usuário no menu.*/
+            case '1':
+                let novaNotaAdicionar = prompt("Digite a nova nota a ser adicionada:"); 
+                adicionarNota(notas, novaNotaAdicionar); 
+                alert("Nota adicionada com sucesso!");
+                break;
+            case '2':
+                mostrarNotas(notas);
+                break;
+            case '3':
+                let indiceAlterar = parseInt(prompt("Digite o índice da nota que deseja alterar (começando do 0):"));
+                if (indiceAlterar >= 0 && indiceAlterar < notas.length) { 
+                    let novaNotaAlterar = prompt("Digite o novo valor para a nota:"); 
+                    alterarNota(notas, indiceAlterar, novaNotaAlterar); //funcao alterar nota
+                    alert("Nota alterada com sucesso!");
+                } else {
+                    alert("Índice inválido.");
+                }
+                break;
+            case '4':
+                removerUltimo(notas);
+                break;
+            case '5':
+                removerPrimeiro(notas);
+                break;
+            case '6':
+                alert("Saindo do sistema.");
+                break;
+            default: //tratando qualquer entrada do usuário que não for um dos cases.
+                alert("Opção inválida. Por favor, escolha uma opção de 1 a 6.");
+        }
+    } while (escolha !== '6'); // enquanto o usuário não digitar 6, o menu se repetirá
+}
+ menu(); // chamei a função "menu" para que haja a execução do código
+</script>
