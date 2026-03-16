@@ -3,7 +3,7 @@
 Este é um sistema de CRUD (Create, Read, Update, Delete) desenvolvido inteiramente com **JavaScript Puro**, focado em manipulação de arrays e estruturas de controle.
 
 ## 🚀 Sobre o Projeto
-O projeto foi criado para consolidar conhecimentos fundamentais de programação, como funções, arrays, objetos e loops. 
+O projeto foi criado para consolidar conhecimentos fundamentais de programação, como funções, arrays e loops. 
 Ele utiliza uma interface baseada em comandos via `prompt` e `alert`, simulando a lógica de um sistema de gestão escolar diretamente no navegador.
 
 ## ✨ Funcionalidades
